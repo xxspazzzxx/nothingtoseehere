@@ -1,11 +1,33 @@
-curl -i http://localhost:8080/api/hello
+##SpringBoot Core HealthCheck
+curl -i http://localhost:12345/api/health
 
-curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Michael\",  \"lastName\" : \"ODonnell\" }" http://localhost:8080/api/host
+##Dataload
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Michael\",  \"lastName\" : \"SHMO\" }" http://localhost:12345/api/host
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Karen\",  \"lastName\" : \"SHMO\" }" http://localhost:12345/api/guest
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Jon\",  \"lastName\" : \"SHMO\" }" http://localhost:12345/api/guest
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Joe\",  \"lastName\" : \"SHMO\" }" http://localhost:12345/api/guest
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Jess\",  \"lastName\" : \"SHMO\" }" http://localhost:12345/api/guest
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Timbo\",  \"lastName\" : \"SHMO\" }" http://localhost:12345/api/guest
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Matt\",  \"lastName\" : \"SHMO\" }" http://localhost:12345/api/guest
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Sam\",  \"lastName\" : \"SHMO\" }" http://localhost:12345/api/guest
 
-curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Karen\",  \"lastName\" : \"Fiscaro\" }" http://localhost:8080/api/guest
-curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Jon\",  \"lastName\" : \"Fiscaro\" }" http://localhost:8080/api/guest
-curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Joe\",  \"lastName\" : \"Fiscaro\" }" http://localhost:8080/api/guest
-curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Jess\",  \"lastName\" : \"Fiscaro\" }" http://localhost:8080/api/guest
-curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Timbo\",  \"lastName\" : \"Fiscaro\" }" http://localhost:8080/api/guest
-curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Matt\",  \"lastName\" : \"Pastor\" }" http://localhost:8080/api/guest
-curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Sam\",  \"lastName\" : \"McCutchin\" }" http://localhost:8080/api/guest
+
+##Starting Kafka from CMD
+##Kafka QuickStart:  https://kafka.apache.org/quickstart
+##Install ZooKeeper
+	##Rename zoo_sample.cfg to zoo.cfg and configure the properties.
+##Install Kafka
+	##Configure server.properties
+
+##Start ZooKeeper: Must be on path, start before Kafka.  CMD
+zkserver
+
+##Start Kafka: Must be on path, Must be in root of Kafka, run after ZooKeeper starts up.  CMD
+.\bin\windows\kafka-server-start.bat config\server.properties
+
+##Create Kafka Topic: After Kafka is started, use this to create topic.  CMD
+.\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic weddinginfo
+
+##Posting to REST endpoint to pop message on Kafka Template
+curl -i -X POST http://localhost:12345/api/attend/michael
+

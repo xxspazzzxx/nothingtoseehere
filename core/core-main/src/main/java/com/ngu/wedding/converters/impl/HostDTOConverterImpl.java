@@ -5,15 +5,18 @@ import com.ngu.wedding.dto.actors.HostDTO;
 import com.ngu.wedding.converters.interfaces.HostDTOConverter;
 import org.springframework.stereotype.Component;
 
-/**
- * DTO Converter
- */
 @Component
 public class HostDTOConverterImpl implements HostDTOConverter
 {
     @Override
-    public Host convert(HostDTO dto)
+    public Host covertToDTO(HostDTO dto)
     {
         return new Host(dto.getFirstName(), dto.getLastName());
     }
+
+    @Override
+    public HostDTO covertFromDTO(Host to) {
+        return new HostDTO(to.getFirstName(), to.getFirstName());
+    }
+
 }

@@ -25,20 +25,20 @@ public class MainController
     private HostDTOConverter hostDTOConverter;
     @Autowired
     private GuestDTOConverter guestDTOConverter;
+    @Autowired
+    private KafkaTemplate<String, String> kafkaTemplate;
 
-    @Autowired private KafkaTemplate<String, String> kafkaTemplate;
-
-    @RequestMapping(path = "/hello")
+    @RequestMapping(path = "/health")
     public @ResponseBody String sayHello()
     {
-        LOG.info("GET called on /hello resource");
-        return "Can you see me Jenbo";
+        return "Healthy";
     }
 
     @PostMapping("/attend/{name}")
     public void example(@PathVariable String name)
     {
-        kafkaTemplate.send("guests", "Hey, I want to attend. My name is " + name);
+        //B, if you see this, maybe its an event where you accept invite and get push notes?
+        kafkaTemplate.send("guests", "Thanks, Brian: I'd like to attend. My name is " + name);
     }
 
     public GuestRepository getGuestRepository()

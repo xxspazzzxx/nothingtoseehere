@@ -21,7 +21,7 @@ public class HostController extends MainController
     @ResponseStatus(HttpStatus.CREATED)
     public @ResponseBody Host addNewHost(@RequestBody HostDTO hostDTO)
     {
-        Host newHost = getHostDTOConverter().convert(hostDTO);
+        Host newHost = getHostDTOConverter().covertToDTO(hostDTO);
         getHostRepository().save(newHost);
 
         LOG.info(newHost.toString() + " successfully saved into DB");

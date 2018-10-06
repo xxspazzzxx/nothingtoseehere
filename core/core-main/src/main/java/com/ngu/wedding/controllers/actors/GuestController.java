@@ -2,7 +2,6 @@ package com.ngu.wedding.controllers.actors;
 
 import com.ngu.wedding.controllers.MainController;
 import com.ngu.wedding.domains.actors.Guest;
-import com.ngu.wedding.domains.actors.Host;
 import com.ngu.wedding.dto.actors.GuestDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +21,7 @@ public class GuestController extends MainController
     @ResponseStatus(HttpStatus.CREATED)
     public @ResponseBody Guest addNewGuest(@RequestBody GuestDTO guestDTO)
     {
-        Guest guest = getGuestDTOConverter().convert(guestDTO);
+        Guest guest = getGuestDTOConverter().covertToDTO(guestDTO);
         guest = getGuestRepository().save(guest);
 
         LOG.info(guest.toString() + " successfully saved into DB");

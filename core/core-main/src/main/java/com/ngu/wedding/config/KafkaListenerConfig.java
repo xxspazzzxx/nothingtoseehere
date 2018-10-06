@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.annotation.KafkaListener;
 
 @Configuration
-@Profile("dev")
+//@Profile("dev")
 public class KafkaListenerConfig
 {
 

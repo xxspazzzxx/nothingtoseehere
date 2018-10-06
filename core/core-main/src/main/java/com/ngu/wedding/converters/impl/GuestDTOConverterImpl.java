@@ -5,15 +5,18 @@ import com.ngu.wedding.dto.actors.GuestDTO;
 import com.ngu.wedding.converters.interfaces.GuestDTOConverter;
 import org.springframework.stereotype.Component;
 
-/**
- * DTO Converter
- */
 @Component
 public class GuestDTOConverterImpl implements GuestDTOConverter
 {
     @Override
-    public Guest convert(GuestDTO dto)
+    public Guest covertToDTO(GuestDTO dto)
     {
         return new Guest(dto.getFirstName(), dto.getLastName());
+    }
+
+    @Override
+    public GuestDTO covertFromDTO(Guest to)
+    {
+        return new GuestDTO(to.getFirstName(), to.getLastName());
     }
 }
