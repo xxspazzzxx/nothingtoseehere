@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class HostDTOConverterImpl implements HostDTOConverter
 {
     @Override
-    public Host convertDTO(HostDTO dto)
+    public Host convert(HostDTO dto)
     {
         return new Host(dto.getFirstName(), dto.getLastName());
     }
