@@ -45,7 +45,7 @@ export default {
     };
   },
   methods: {
-    // Fetches posts when the component is created.
+    // Fetches guests
     retrieveGuests() {
       AXIOS.get(`/guest/all/`)
         .then(response => {

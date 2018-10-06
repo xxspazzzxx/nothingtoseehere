@@ -11,15 +11,9 @@ module.exports = {
   entry: [
     './src/main.js'
   ],
-  devServer: {
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8888',
-        ws: true,
-        changeOrigin: true
-      }
-    }
-  },
+  presets: [
+    '@vue/app'
+  ],
   module: {
     rules: [
       {
