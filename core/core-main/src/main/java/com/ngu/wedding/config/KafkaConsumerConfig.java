@@ -17,15 +17,22 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 public class KafkaConsumerConfig
 {
 
+	private ApplicationProperties applicationProperties;
+
+	public KafkaConsumerConfig(ApplicationProperties applicationProperties)
+	{
+		this.applicationProperties = applicationProperties;
+	}
+
 	@Bean
 	public ConsumerFactory<String, String> consumerFactory() {
 		Map<String, Object> props = new HashMap<>();
 		props.put(
 				ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
-				"http://localhost:9092");
+				applicationProperties.getKafkaUri());
 		props.put(
 				ConsumerConfig.GROUP_ID_CONFIG,
-				"weddinginfo");
+				applicationProperties.getKafkaGroupId());
 		props.put(
 				ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
 				StringDeserializer.class);

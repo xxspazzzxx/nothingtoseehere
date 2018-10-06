@@ -9,6 +9,7 @@ public class ApplicationProperties
 {
 
 	private String kafkaUri = null;
+	private String kafkaGroupId = null;
 
 	public String getKafkaUri()
 	{
@@ -18,5 +19,15 @@ public class ApplicationProperties
 	public void setKafkaUri(String kafkaUri)
 	{
 		this.kafkaUri = kafkaUri;
+	}
+
+	public String getKafkaGroupId()
+	{
+		return kafkaGroupId;
+	}
+
+	public void setKafkaGroupId(String kafkaGroupId)
+	{
+		this.kafkaGroupId = kafkaGroupId;
 	}
 }
