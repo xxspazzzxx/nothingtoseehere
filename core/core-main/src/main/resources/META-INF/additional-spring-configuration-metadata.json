@@ -1,0 +1,8 @@
+{
+	"properties": [
+		{
+			"name": "application.kafkaUri",
+			"type": "java.lang.String",
+			"description": "Description for application.kafkaUri."
+		}
+] }

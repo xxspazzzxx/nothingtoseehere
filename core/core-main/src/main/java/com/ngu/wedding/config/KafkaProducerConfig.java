@@ -14,6 +14,12 @@ import org.springframework.kafka.core.ProducerFactory;
 @Configuration
 public class KafkaProducerConfig
 {
+	private ApplicationProperties applicationProperties;
+
+	public KafkaProducerConfig(ApplicationProperties applicationProperties)
+	{
+		this.applicationProperties = applicationProperties;
+	}
 
 	@Bean
 	public ProducerFactory<String, String> producerFactory()
@@ -21,7 +27,7 @@ public class KafkaProducerConfig
 		Map<String, Object> configProps = new HashMap<>();
 		configProps.put(
 				ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
-				"http://localhost:9092");
+				applicationProperties.getKafkaUri());
 		configProps.put(
 				ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
 				StringSerializer.class);
