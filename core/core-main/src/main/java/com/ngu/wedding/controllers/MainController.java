@@ -7,6 +7,8 @@ import com.ngu.wedding.repo.HostRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
 @RestController()
@@ -24,6 +26,8 @@ public class MainController
     @Autowired
     private GuestDTOConverter guestDTOConverter;
 
+    @Autowired private KafkaTemplate<String, String> kafkaTemplate;
+
     @RequestMapping(path = "/hello")
     public @ResponseBody String sayHello()
     {
@@ -31,6 +35,11 @@ public class MainController
         return "Can you see me Jenbo";
     }
 
+    @PostMapping("/attend/{name}")
+    public void example(@PathVariable String name)
+    {
+        kafkaTemplate.send("guests", "Hey, I want to attend. My name is " + name);
+    }
 
     public GuestRepository getGuestRepository()
     {
