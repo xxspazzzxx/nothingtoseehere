@@ -1,14 +1,13 @@
 <template>
-  <h1>Hello {{ name }}!</h1>
+ <div class="hello">
+    <h1>{{ hellomsg }}</h1>
+  </div>
 </template>
+
 <script>
 export default {
-  props: {
-    name: {
-      type: String,
-      required: true
-    }
-  }
+  name: 'hello',
+ props: { hellomsg: { type: String } }
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
