@@ -1,8 +1,8 @@
-'use strict'
-const webpack = require('webpack')
-const { VueLoaderPlugin } = require('vue-loader')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin  = require('mini-css-extract-plugin')
+'use strict';
+const webpack = require('webpack');
+const { VueLoaderPlugin } = require('vue-loader');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin  = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
@@ -63,4 +63,4 @@ module.exports = {
     filename: 'main.css'
     })
   ]
-}
+};;
