@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Hello from '@/components/Hello';
-import Hosts from '@/components/Guests';
-import Carousel from '@/components/Carousel.vue';
+import Guests from '@/components/Guests';
 
 Vue.use(Router);
 
@@ -17,11 +16,6 @@ export default new Router({
       path: '/guests',
       name: 'Guests',
       component: Guests
-    },
-    {
-      path: '/carousel',
-      name: 'Carousel',
-      component: Carousel
     }
   ]
 });
