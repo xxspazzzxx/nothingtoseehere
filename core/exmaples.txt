@@ -1,0 +1,11 @@
+curl -i http://localhost:8080/api/hello
+
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Michael\",  \"lastName\" : \"ODonnell\" }" http://localhost:8080/api/host
+
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Karen\",  \"lastName\" : \"Fiscaro\" }" http://localhost:8080/guest
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Jon\",  \"lastName\" : \"Fiscaro\" }" http://localhost:8080/guest
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Joe\",  \"lastName\" : \"Fiscaro\" }" http://localhost:8080/guest
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Jess\",  \"lastName\" : \"Fiscaro\" }" http://localhost:8080/guest
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Timbo\",  \"lastName\" : \"Fiscaro\" }" http://localhost:8080/guest
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Matt\",  \"lastName\" : \"Pastor\" }" http://localhost:8080/guest
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"firstName\" : \"Sam\",  \"lastName\" : \"McCutchin\" }" http://localhost:8080/guest
