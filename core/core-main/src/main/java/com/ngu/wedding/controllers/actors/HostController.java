@@ -17,11 +17,11 @@ public class HostController extends MainController
 {
     private static final Logger LOG = LoggerFactory.getLogger(HostController.class);
 
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public @ResponseBody Host addNewHost(@RequestBody HostDTO hostDTO)
     {
-        Host newHost = getHostDTOConverter().convertDTO(hostDTO);
+        Host newHost = getHostDTOConverter().convert(hostDTO);
         getHostRepository().save(newHost);
 
         LOG.info(newHost.toString() + " successfully saved into DB");
@@ -29,7 +29,7 @@ public class HostController extends MainController
         return newHost;
     }
 
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @GetMapping
     public ResponseEntity<List<Host>> listAllHosts()
     {
         List<Host> hosts = getHostRepository().findAll();

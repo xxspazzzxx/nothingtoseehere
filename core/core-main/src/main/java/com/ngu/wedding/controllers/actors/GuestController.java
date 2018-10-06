@@ -18,11 +18,11 @@ public class GuestController extends MainController
 {
     private static final Logger LOG = LoggerFactory.getLogger(GuestController.class);
 
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public @ResponseBody Guest addNewGuest(@RequestBody GuestDTO guestDTO)
     {
-        Guest guest = getGuestDTOConverter().convertDTO(guestDTO);
+        Guest guest = getGuestDTOConverter().convert(guestDTO);
         guest = getGuestRepository().save(guest);
 
         LOG.info(guest.toString() + " successfully saved into DB");
@@ -30,7 +30,7 @@ public class GuestController extends MainController
         return guest;
     }
 
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @GetMapping
     public ResponseEntity<List<Guest>> listAllGuests()
     {
         List<Guest> guests = getGuestRepository().findAll();

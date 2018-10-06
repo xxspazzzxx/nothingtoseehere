@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class GuestDTOConverterImpl implements GuestDTOConverter
 {
     @Override
-    public Guest convertDTO(GuestDTO dto)
+    public Guest convert(GuestDTO dto)
     {
         return new Guest(dto.getFirstName(), dto.getLastName());
     }
